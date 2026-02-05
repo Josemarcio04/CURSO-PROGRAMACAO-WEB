@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href = "style.css">
+        <title> EX 1 </title>
+    </head>
+    <body>
+        <header>
+            <h1> Lista de compras</h1>
+        </header>
+        <main id = "partePrincipal">
+            <div id = "grupoAdicionar">
+                <input id = "inputAdicionar" placeholder="Informe aqui os itens da lista">
+               <button id = "botaoAdicionar"> Adicionar item </button>
+            </div>
+            <p id = "observacaoValidacao"></p>
+            <ul id = "lista" class = "classeLista">
+                
+            </ul>
+            <div id = "espacoBotaoLimpar">
+            </div>
+            <p> Total de itens: <span id = "qntdItens"></span>.</p>
+            
+        </main>
+
+        <script src = "exercicio.js"></script>
+    </body>
+</html>
