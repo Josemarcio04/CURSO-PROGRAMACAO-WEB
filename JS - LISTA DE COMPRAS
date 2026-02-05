@@ -1,0 +1,289 @@
+function valorInputEValido(idElemento){
+
+    if (idElemento === "" || idElemento === null){
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function criarElemento(idElemento){
+
+    let elementoNovo = document.createElement("li");
+    elementoNovo.id = idElemento;
+
+    let lista = document.getElementById("lista");
+    lista.appendChild(elementoNovo);
+}
+
+function criarContainer(idElemento){
+
+    let containerNovo = document.createElement("div");
+    containerNovo.id = "container" + idElemento;
+    containerNovo.classList.add("container");
+
+    let elemento = document.getElementById(idElemento);
+    elemento.appendChild(containerNovo);
+}
+
+function criarParagrafo(idElemento){
+    
+    let paragrafoNovo = document.createElement("p");
+    paragrafoNovo.id = "paragrafo" + idElemento;
+    paragrafoNovo.textContent = idElemento;
+
+    let container = document.getElementById("container" + idElemento);
+    container.appendChild(paragrafoNovo);
+}
+
+function criarDivQntd(idElemento){
+
+    let divQntd = document.createElement("div");
+    divQntd.id = "divQntd" + idElemento;
+    divQntd.classList.add("classeDivQuantidade");
+    
+    let container = document.getElementById("container" + idElemento);
+    container.appendChild(divQntd);
+}
+
+function criarParagrafoQntd(idElemento){
+
+    let paragrafoQntd = document.createElement("p");
+    paragrafoQntd.id = "paragrafoQntd" + idElemento;
+    paragrafoQntd.value = 1;
+    paragrafoQntd.textContent = paragrafoQntd.value;
+    
+    let divQntd = document.getElementById("divQntd" + idElemento);
+    divQntd.appendChild(paragrafoQntd);
+}
+
+function aumentaQntd(idElemento){
+
+    let paragrafoQuantidade = document.getElementById("paragrafoQntd" + idElemento);
+    paragrafoQuantidade.value++;
+    paragrafoQuantidade.textContent = paragrafoQuantidade.value;
+}
+
+function criarBotaoAumentarQntd(idElemento){
+
+    let botaoAumentarQntd = document.createElement("button");
+    botaoAumentarQntd.id = "botaoAumentarQntd" + idElemento;
+    botaoAumentarQntd.textContent = "+";
+    botaoAumentarQntd.addEventListener("click", function(){
+        aumentaQntd(idElemento);
+    });
+    
+    let divQntd = document.getElementById("divQntd" + idElemento); 
+    divQntd.appendChild(botaoAumentarQntd);
+}
+
+function diminuiQntd(idElemento){
+    let paragrafoQntd = document.getElementById("paragrafoQntd" + idElemento);
+    
+    if (paragrafoQntd.value > 1){
+        paragrafoQntd.value--;
+        paragrafoQntd.textContent = paragrafoQntd.value;
+    }
+}
+
+function criarBotaoDiminuirQntd(idElemento){
+
+    let botaoDiminuirQntd = document.createElement("button");
+    botaoDiminuirQntd.id = "botaoDiminuirQntd" + idElemento;
+    botaoDiminuirQntd.textContent = "-";
+    botaoDiminuirQntd.addEventListener("click", function(){
+        diminuiQntd(idElemento);
+    });
+
+    let divQntd = document.getElementById("divQntd" + idElemento);
+    divQntd.appendChild(botaoDiminuirQntd);
+}
+
+function formatarComprado(idElemento){
+
+    let paragrafoAFormatar = document.getElementById("paragrafo" + idElemento);
+    paragrafoAFormatar.classList.toggle("comprado");
+}
+
+function criarBotaoComprado(idElemento){
+
+    let botaoCompradoNovo = document.createElement("button");
+    botaoCompradoNovo.id = "botaoComprado" + idElemento;
+    botaoCompradoNovo.textContent = "Comprado";
+    botaoCompradoNovo.addEventListener("click", function(){
+        formatarComprado(idElemento);
+    });
+    
+    let container = document.getElementById("container" + idElemento);
+    container.appendChild(botaoCompradoNovo);
+}
+
+function removerBotaoLimpar(){
+
+    let botaoLimpar = document.getElementById("botaoLimpar");
+    botaoLimpar.remove();
+}
+
+function limpar(){
+    
+    let lista = document.getElementById("lista");
+    lista.textContent = "";
+    
+    atualizarQntdItens();
+
+    removerBotaoLimpar();  
+}
+
+function criarBotaoLimpar(){
+
+    let botaoLimpar = document.createElement("button");
+    botaoLimpar.id = "botaoLimpar";
+    botaoLimpar.textContent = "Limpar tudo";
+    botaoLimpar.addEventListener("click", limpar);
+
+    let espacoBotaoLimpar = document.getElementById("espacoBotaoLimpar");
+    espacoBotaoLimpar.appendChild(botaoLimpar);
+}
+
+function atualizarQntdItens(){
+    let lista = document.getElementById("lista");
+    let totalItens = lista.children.length;
+
+    let qntdItens = document.getElementById("qntdItens");
+    qntdItens.textContent = totalItens; 
+}
+
+function removeElemento(idElementoARemover){
+
+    let elementoARemover = document.getElementById(idElementoARemover);
+    elementoARemover.remove();
+
+    let lista = document.getElementById("lista");
+    let totalItens = lista.children.length;
+
+    if (totalItens === 0){
+        removerBotaoLimpar();
+    }
+
+    atualizarQntdItens();
+}
+
+function criarBotaoRemover(idElemento){
+    
+    let botaoRemover = document.createElement("button");
+    botaoRemover.id = "botaoRemover" + idElemento;
+    botaoRemover.textContent = "Remover";
+    botaoRemover.addEventListener("click", function(){
+        removeElemento(idElemento);
+    });
+
+    let container = document.getElementById("container" + idElemento);
+    container.appendChild(botaoRemover);
+}
+
+function editarElemento(idElemento){
+    let idEditado = prompt("Digite o elemento pelo qual deseja substituir '" + idElemento + "': " );
+
+    if (valorInputEValido(idEditado) === true){
+
+        let containerAEditar = document.getElementById("container" + idElemento);
+        containerAEditar.remove();
+
+        let elementoAEditar = document.getElementById(idElemento);
+        elementoAEditar.id = idEditado;
+
+        criarContainer(idEditado);
+
+        criarParagrafo(idEditado);
+
+        criarDivQntd(idEditado);
+
+        criarParagrafoQntd(idEditado);
+
+        criarBotaoAumentarQntd(idEditado);
+
+        criarBotaoDiminuirQntd(idEditado);
+
+        criarBotaoComprado(idEditado);
+
+        criarBotaoRemover(idEditado);
+
+        criarBotaoEditar(idEditado);
+    }
+}
+
+function criarBotaoEditar(idElemento){
+    
+    let botaoEditar = document.createElement("button");
+    botaoEditar.id = "botaoEditar" + idElemento;
+    botaoEditar.textContent = "Editar";
+    botaoEditar.addEventListener("click", function(){
+        editarElemento(idElemento);
+    });
+
+    let container = document.getElementById("container" + idElemento);
+    container.appendChild(botaoEditar);
+}
+
+function adicionar(){
+
+    let inputAdicionar = document.getElementById("inputAdicionar");
+    let idElementoNovo = inputAdicionar.value;
+
+    let observacaoValidacao = document.getElementById("observacaoValidacao");
+
+    if (valorInputEValido(idElementoNovo) === false){
+        observacaoValidacao.textContent = "Informe acima o que deseja adicionar à lista.";
+    } else{
+        observacaoValidacao.textContent = "";
+
+        criarElemento(idElementoNovo);
+
+        criarContainer(idElementoNovo);
+
+        criarParagrafo(idElementoNovo);
+
+        criarDivQntd(idElementoNovo);
+
+        criarParagrafoQntd(idElementoNovo);
+
+        criarBotaoAumentarQntd(idElementoNovo);
+
+        criarBotaoDiminuirQntd(idElementoNovo);
+
+        criarBotaoComprado(idElementoNovo);
+
+        criarBotaoRemover(idElementoNovo);
+
+        criarBotaoEditar(idElementoNovo);
+
+        let lista = document.getElementById("lista");
+        let totalItens = lista.children.length;
+
+        if (totalItens === 1){
+
+            criarBotaoLimpar();
+        }
+    }
+
+    atualizarQntdItens();
+}
+
+function inputEBotaoAdicionar(){
+
+    let botaoAdicionar = document.getElementById("botaoAdicionar");
+    botaoAdicionar.addEventListener("click", adicionar);
+
+    let inputAdicionar = document.getElementById("inputAdicionar");
+    inputAdicionar.addEventListener("keypress", function(e){
+        if(e.key === "Enter"){
+            adicionar();
+        }
+});
+
+}
+
+inputEBotaoAdicionar();
+
+atualizarQntdItens();    
+
