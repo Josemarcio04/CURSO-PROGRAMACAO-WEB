@@ -1,0 +1,38 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: baseline;
+}
+
+.classeLista{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container{
+    display: flex;
+    gap: 5px;
+
+    p{
+        padding: 10px;
+    }
+}
+
+.comprado{
+    text-decoration: line-through;
+    background-color: lightgreen;
+    color: #999;
+}
+
+.classeDivQuantidade{
+    display: flex;
+    gap: 3px;
+}
