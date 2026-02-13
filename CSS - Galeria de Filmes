@@ -1,0 +1,132 @@
+body{
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: Arial, sans-serif;
+    font-size: small;
+    justify-content: center;
+    align-items: center; 
+    
+}
+
+header{
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+main{
+    margin: auto 70px;
+}
+
+#filtros{
+    background-color: white;
+    padding: 20px;
+    border: solid black 1px;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    select{
+        width: 150px;
+    }
+}
+
+#botaoLimparFiltros{
+        background-color: red;
+        color: white;
+        margin-top: 40px;
+}
+
+.modoEscuro{
+    background: black
+}
+
+.botaoModoEscuro{
+        background-color: black;
+        color: white;
+        margin-top: 40px;
+}
+
+.botaoModoClaro{
+        background-color: white;
+        color: black;
+        margin-top: 40px;
+}
+
+.modoEscuro{
+    background: linear-gradient(135deg, #000000 0%, #434343 100%);
+}
+
+#paragrafoContador{
+    background-color: white;
+    padding: 15px;
+    border: solid black 1px;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+#totalFilmesFiltrado, #totalFilmes{
+    background-color: yellow;
+    font-weight: bold;
+    padding: 2px;
+    border: solid black 1px;
+    border-radius: 2px;
+}
+
+#painel, #painelFavoritos{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    div{ 
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 20px;
+        border: solid black 1px;
+        border-radius: 5px;
+        width: 150px;
+    }
+}
+
+.botaoFavorito{
+    background-color: red;
+    color: white;
+}
+
+.containerRomance{
+    background-color: pink;
+}
+
+.containerAcao{
+    background-color: red;
+}
+
+.containerAventura{
+    background-color: green;
+}
+
+.containerDrama{
+    background-color: purple;
+}
+
+.containerComedia{
+    background-color: yellow;
+}
+
+.botaoFavorito{
+    background-color: red;
+    color: white;
+}
+
+footer{
+    background-color: grey;
+    padding: 7px;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin: 20px 0px 0px 0px;
+}
+
