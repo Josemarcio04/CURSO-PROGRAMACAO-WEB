@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <link rel = "stylesheet" href = "ex.css">
+        <title> Galeria de Filmes </title>
+    </head>
+    <body id = "corpo">
+        <header>
+            <h1> 🎬 Galeria de Filmes </h1>
+        </header>   
+        <main>
+            <div id = "filtros">
+                <div id = "grupoInput">
+                    <p> 🔍 Buscar: </p>
+                    <input id = "input" placeholder = "Digite o nome do filme:">
+                </div>
+                <div id = "grupoSelectGenero">
+                    <p> 🎭 Gênero: </p>
+                    <select id = "selectGenero">
+                        <option value = "Todos"> Todos </option>
+                        <option value = "Ação"> Ação </option>
+                        <option value = "Romance"> Romance </option>
+                        <option value = "Aventura"> Aventura </option>
+                        <option value = "Comédia"> Comédia </option>
+                        <option value = "Drama"> Drama </option>
+                    </select>
+                </div>
+                <div id = "grupoSelectNota">
+                    <p> ⭐ Nota mínima: </p>
+                    <select id = "selectNota">
+                        <option value = "Todas"> Todas </option>
+                        <option value = "0"> 0 </option>
+                        <option value = "1"> 1 </option>
+                        <option value = "2"> 2 </option>
+                        <option value = "3"> 3 </option>
+                        <option value = "4"> 4 </option>
+                        <option value = "5"> 5 </option>
+                    </select>
+                </div>
+                <div id = "grupoSelectOrdenar">
+                    <p>📊 Ordenar por: </p>
+                    <select id = "selectOrdenar">
+                        <option value = "Padrão"> Padrão </option>
+                        <option value = "Alfabética"> (A - Z) </option>
+                        <option value = "Ano crescente"> Ano (cresc.)</option>
+                        <option value = "Ano decrescente"> Ano (decresc.)</option>
+                    </select>
+                </div>
+                <div id = "grupoSelectDecada">
+                    <p> 📅 Década: </p>
+                    <select id = "selectDecada">
+                        <option value = "Todas"> Todas </option>    
+                        <option value = "Anos 70"> Anos 70 </option>
+                        <option value = "Anos 80"> Anos 80 </option>
+                        <option value = "Anos 90"> Anos 90 </option>
+                        <option value = "Anos 2000"> Anos 2000 </option>
+                        <option value = "Anos 2010+"> Anos 2010+ </option>
+                    </select>
+                </div>  
+                <button id = "botaoLimparFiltros"> 🔄 Limpar Filtros </button>
+                <button id = "botaoModo" class = "botaoModoEscuro"> 🌙 Modo Escuro </button>
+            </div>
+
+            <p id = "paragrafoContador"> Exibindo <span id = "totalFilmesFiltrado"></span> de <span id = "totalFilmes"></span></p>
+
+            <div id = "grupoPainelFavoritos">
+                <h2 id = "tituloPainelFavoritos"></h2>
+                <div id = "painelFavoritos">
+                    
+                </div>
+            </div>
+
+            <div id = "grupoPainel">
+                <h2> 🎬 Filmes </h2>
+                <div id = "painel">
+
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p> © 2025 | Galeria de Filmes </p>
+        </footer>
+    </body>
+
+    <script src = "ex.js"></script>
+</html>
